@@ -1,0 +1,26 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia: New page
+{% endblock %}
+
+{% block body %}
+    <h1>Page Builder</h1>
+    <div style="margin: 10px;">
+        <br>
+        <form action="/new" method="POST">
+        {% csrf_token %}
+            <div>
+                <div><label for="title">Title</label></div>
+                <input type="text" id="title" name="title" autocomplete="off" autofocus placeholder="MyNewPage" style="width: 500px;">
+            </div>
+            <br>
+            <div>
+                <div><label for="content">Content</label></div>
+                <textarea id="content" name="content" autocomplete="off" placeholder="My content in Markdown..." style="width: 500px; height: 300px;"></textarea>
+            </div>
+            <br>
+            <div><input type="submit" value="Create" style="width: 200px;"></div>
+        </form>
+    </div>
+{% endblock %}
